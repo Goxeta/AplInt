@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headScript(); ?>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink()->appendStylesheet($this->serverUrl().$this->baseUrl().('/css/global.css')); ?>
+   
+
+
+</head>
+<body>
+    <div id="breadcrumbs">
+        <?php echo $this->navigation()->breadcrumbs()
+            ->setMinDepth(0)
+            ->setSeparator(' &raquo; ') ?>
+    </div>
+    <nav>
+        <?php echo $this->navigation(); ?>
+    </nav>
+    <main>
+        <?php //Zend_Debug::dump($this->userAgent()->getServerValue('request_uri'));
+ //Zend_Debug::dump($this->baseUrl().'/');
+        if($this->userAgent()->getServerValue('request_uri')!=$this->baseUrl().'/'):?>
+        <div id="logout" name="logout">
+        <a href="<?php echo $this->serverUrl('/PhpProject6/public/index/logout')?>">Logout</a>
+        </div>
+        <div id="back" name="back">
+        <a href="<?php echo $this->serverUrl().$this->baseUrl().'/index/all'?>">Back</a>
+        </div>
+        <?php //  $session = new Zend_Session_Namespace('Email');
+//        $values = $session->email;
+       ?>
+        <div id="send" name="send">
+        <a href="<?php echo $this->serverUrl('/PhpProject6/public/index/email')?>">Send Mail</a>
+        </div>
+        <?php endif?>
+        <?php echo $this->layout()->content; ?>
+        <?php echo $this->inlineScript(); ?>
+      
+    </main>
+</body>
+</html>

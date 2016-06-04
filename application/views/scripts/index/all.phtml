@@ -1,0 +1,18 @@
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
+<?php // if (count($this->emails)): ?>
+<?php foreach($this->emails as $email) : ?>
+<a  href="<?php echo $this->serverUrl('/PhpProject6/public/index/message/id/').$this->escape($email["id"]);?>">
+    <table> 
+        
+        <td style="width:30%"><?php echo $this->escape($email["from"]);?></td>
+        <td style="width:30%;text-align: center"><?php echo $this->escape($email["subject"]);?></td>
+
+        <td style="width:30%;text-align: right"><?php echo $this->escape($email["time"]);?></td>
+    </table>
+</a>
+<?php endforeach; ?>
+<?php // endif;?>
+<?php echo $this->paginationControl($this->emails,
+                                    'Sliding',
+                                    'paginationcontrol.phtml'); ?>
+

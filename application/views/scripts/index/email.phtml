@@ -1,0 +1,9 @@
+<?php if(count($this->messages) > 0): ?>
+    <ul id="messages">
+        <?php foreach($this->messages as $message): ?>
+        <li><?php echo $message; ?>
+            <?php endforeach; ?>
+        </li></ul>
+<?php endif; ?>
+<?php
+echo $this->form;?>

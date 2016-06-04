@@ -1,0 +1,60 @@
+body {
+    background-color: cadetblue;
+}
+#back{
+    width: 50px;
+    height: 20px;
+    border-style: outset;
+    background-color:aquamarine;
+}
+#send{
+    width: 90px;
+    height: 20px;
+    border-style: outset;
+    background-color:aquamarine;
+}
+#logout{
+    width: 70px;
+    height: 20px;
+    border-style: outset;
+    background-color:aquamarine;
+    float: right;
+}
+#login{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 300px;
+    height: 200px;
+    border-style: outset;
+    background-color:aquamarine
+}
+table {
+    width:100%;
+    background-color: appworkspace;
+    margin-top: 10px;
+    border-style: outset;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+#message{
+    background-color: bisque;
+}
+#head{
+    margin-top: 10px;
+     border-style: outset;
+}
+#subject{
+    font-size: 250%;
+}
+#time{
+    text-align: right;
+}
+#content{
+    margin-top: 10px;
+     border-style: outset;
+}
