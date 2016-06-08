@@ -5,6 +5,7 @@
         <group>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/views/scripts/index/email.phtml</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/forms/loginForm.php</file>
+            <file>file:/opt/lampp/htdocs/PhpProject6/public/.htaccess</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/views/scripts/index/message.phtml</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/controllers/IndexController.php</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/configs/application.ini</file>
@@ -13,7 +14,9 @@
             <file>file:/opt/lampp/htdocs/PhpProject6/application/views/scripts/index/index.phtml</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/forms/emailForm.php</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/layouts/scripts/default.phtml</file>
+            <file>file:/opt/lampp/htdocs/PhpProject6/.htaccess</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/views/scripts/index/all.phtml</file>
+            <file>file:/opt/lampp/htdocs/PhpProject6/application/models/Konwerter.php</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/public/index.php</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/models/Email.php</file>
             <file>file:/opt/lampp/htdocs/PhpProject6/application/views/scripts/index/auth.phtml</file>

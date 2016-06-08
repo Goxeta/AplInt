@@ -16,6 +16,18 @@ class Email {
     private $_username;
     private $_password;
     private $_server;
+    
+    public function konwerter($string)
+    {
+        $string= str_replace("Ã³", "ó", $string);
+        $string= str_replace("Å", "ł", $string);
+        $string= str_replace("Ä", "ę", $string);
+        $string= str_replace("Ã«", "ë", $string);
+        $string= str_replace("łº", "ź", $string);
+        $string= str_replace("ł¼", "ż", $string);
+        $string= str_replace("Åº", "ź", $string);
+        return $string;
+    }
     public function set($values){
         $this->_username=$values["username"];
         $this->_password=$values["password"];
@@ -55,8 +67,8 @@ class Email {
         //Zend_Debug::dump($mail->getUniqueId());
        // var_dump($mail->getUniqueId());
         $email[]=array('id'=>$id,
-            'from'=>str_replace("_"," ", mb_decode_mimeheader($mail->from)),
-            'subject'=>str_replace("_"," ", mb_decode_mimeheader($mail->subject)),
+            'from'=>$this->konwerter(str_replace("_"," ", mb_decode_mimeheader($mail->from))),
+            'subject'=>$this->konwerter(str_replace("_"," ", mb_decode_mimeheader($mail->subject))),
             'time'=>utf8_encode(htmlentities(date("Y-m-d H:s" ,strtotime($mail->date)))));
         $id++;
     }
@@ -81,12 +93,12 @@ class Email {
            // header('Content-Type: text/html; charset=utf-8');
            // echo '----------------------<br />' . "\n";
             //echo "From: " . utf8_encode($mail->from) . "<br />\n";
-            $array["from"]=utf8_encode($mail->from);
+            $array["from"]=  $this->konwerter(utf8_encode($mail->from));
           //  echo "To: " . utf8_encode(htmlentities($mail->to)) . "<br />\n";
             //echo "Time: " . utf8_encode(htmlentities(date("Y-m-d H:s", strtotime($mail->date)))) . "<br />\n";
-            $array["time"]=utf8_encode(htmlentities(date("Y-m-d H:s", strtotime($mail->date))));
+            $array["time"]=  utf8_encode(htmlentities(date("Y-m-d H:s", strtotime($mail->date))));
             //echo "Subject: " . utf8_encode($mail->subject) . "<br />\n";
-            $array["subject"]=utf8_encode($mail->subject);
+            $array["subject"]=  $this->konwerter(utf8_encode($mail->subject));
 
             foreach (new RecursiveIteratorIterator($mail) as $part) {
                 try {
@@ -109,7 +121,8 @@ class Email {
                // $content
                // . " <br /><br /><br /><br />\n\n\n";
             }
-            $array["content"]=$content;
+            //$array["content"]=$content;
+            $array["content"]=$mail->getContent();
             return $array;
     }
     
@@ -124,8 +137,8 @@ class Email {
                                 'smtpPort'=>465);
                 try {
                     $transport = new Zend_Mail_Transport_Smtp($valuesSession["server"], $list);
-                    Zend_Mail::setDefaultTransport($transport);
                     $mail = new Zend_Mail();
+                    $mail->setDefaultTransport($transport);
                     $mail->setBodyText($values["message"]);
                     $mail->setFrom($valuesSession["username"],"");
                     $mail->addTo($values["to"], 'Some Recipient');

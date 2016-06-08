@@ -14,8 +14,13 @@ defined('APPLICATION_ENV')
 //    realpath(APPLICATION_PATH . '/../library'),
 //    get_include_path(),
 //)));
-set_include_path('.'.PATH_SEPARATOR.'../library'. PATH_SEPARATOR . '../application/models'.PATH_SEPARATOR . '../application/forms'. PATH_SEPARATOR . '../application/plugins'
-	.PATH_SEPARATOR. get_include_path());
+set_include_path(
+        APPLICATION_PATH.'/../library'. PATH_SEPARATOR.
+        APPLICATION_PATH.'/../library/Zend'.PATH_SEPARATOR.
+        APPLICATION_PATH.'/../application/models'.PATH_SEPARATOR. 
+        APPLICATION_PATH.'/../application/forms'. PATH_SEPARATOR. 
+        APPLICATION_PATH.'/../application/plugins'.PATH_SEPARATOR. 
+        get_include_path());
 
 /** Zend_Application */
 require_once 'Zend/Application.php';
