@@ -134,7 +134,7 @@ class Email {
                                 'username'=>$valuesSession["username"],
                                 'password'=>$valuesSession["password"],
                                 'ssl'=>'ssl',
-                                'smtpPort'=>465);
+                                'port'=>465);
                 try {
                     $transport = new Zend_Mail_Transport_Smtp($valuesSession["server"], $list);
                     $mail = new Zend_Mail();
@@ -143,7 +143,7 @@ class Email {
                     $mail->setFrom($valuesSession["username"],"");
                     $mail->addTo($values["to"], 'Some Recipient');
                     $mail->setSubject($values["title"]);
-                    $cos=$mail->send();
+                    $mail->send();
                     $return ="Sucessfull";
                 } catch (Exception $e) {
                    $return=$e->getMessage();
